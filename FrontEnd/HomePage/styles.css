@@ -43,17 +43,16 @@ body, h1, h2, h3, p {
   .navbar a:hover {
     background-color: rgba(255, 255, 255, 0.2);
   }
-  
-  /* Specific styling for Logout button */
   .logout-button {
-    background-color: #dcd435; /* Red button for emphasis */
+    background-color: #dcd435; 
     color: white;
     font-weight: bold;
   }
-  
-  .logout-button:hover {
-    background-color: #a79e1d;
+  .navbar a.active {
+    color: rgb(238, 220, 54);
+    font-weight: bold;
   }
+  
   .hero {
     text-align: center;
     padding: 60px 20px;

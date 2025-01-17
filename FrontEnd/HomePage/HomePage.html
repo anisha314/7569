@@ -14,6 +14,7 @@
       <a href="#features">Features</a>
       <a href="../AboutPage/AboutPage.html">About</a>
       <a href="#footer">Contact</a>
+      <a href="../login-page/login.html" class="logout-button">Logout</a>
     </nav>
   </header>
 
@@ -54,6 +55,13 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    document.querySelector('.logout-button').addEventListener('click', function (event) {
+  const confirmLogout = confirm('Are you sure you want to log out?');
+  if (!confirmLogout) {
+    event.preventDefault();
+  }
+});
+  </script>
 </body>
 </html>

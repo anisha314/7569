@@ -35,10 +35,24 @@ body, h1, h2, h3, p {
     color: white;
     text-decoration: none;
     margin: 0 10px;
-    transition: color 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
   }
+  
   .navbar a:hover {
-    color: #ffc107;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Specific styling for Logout button */
+  .logout-button {
+    background-color: #dcd435; /* Red button for emphasis */
+    color: white;
+    font-weight: bold;
+  }
+  
+  .logout-button:hover {
+    background-color: #a79e1d;
   }
   .hero {
     text-align: center;

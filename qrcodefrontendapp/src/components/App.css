@@ -1,0 +1,132 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, h3 {
+    color: #333;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 2rem;
+    color: #4CAF50;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    margin-top: 1.2rem;
+    color: #00796b;
+  }
+  
+  /* Container Styles */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  /* Input & Button Styles */
+  input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* QR Code Section */
+  .qr-code {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  /* Nutritional Info */
+  .nutritional-info {
+    margin-top: 20px;
+  }
+  
+  .nutritional-info p {
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  .nutritional-info .calories {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #d32f2f;
+  }
+  
+  /* Quantity Input Section */
+  .quantity-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+  
+  .quantity-input input {
+    width: 80px;
+    padding: 5px;
+    font-size: 1rem;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+  }
+  
+  .quantity-input p {
+    font-size: 1.2rem;
+    color: #00796b;
+  }
+  
+  /* Nutrition Page Styles */
+  .nutrition-page {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .nutrition-page p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .nutrition-page h2 {
+    font-size: 2rem;
+    color: #388e3c;
+  }
+  
+  .nutrition-page h3 {
+    font-size: 1.4rem;
+    color: #00796b;
+  }
+  

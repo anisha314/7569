@@ -111,7 +111,7 @@ const QRNutrition = () => {
               value={nutritionalData.quantity}
               onChange={handleQuantityChange}
               min="1"
-              step="0.1"
+              step="1"
             />
             <p>Quantity: {nutritionalData.quantity} servings</p>
           </div>

@@ -81,6 +81,11 @@ input:focus {
     outline: none;
 }
 
+
+#username-input {
+    padding-left: 45px;
+}
+
 button {
     background-color: #007BFF;
     color: #fff;

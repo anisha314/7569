@@ -1,0 +1,16 @@
+/* Footer Styles */
+#homepage-footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #343a40;
+    color: white;
+  }
+  #homepage-footer .homepage-footer-link {
+    color: #ffc107;
+    text-decoration: none;
+  }
+  #homepage-footer .homepage-footer-link:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  

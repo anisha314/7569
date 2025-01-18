@@ -1,0 +1,63 @@
+/* About Page Styles */
+
+/* Section wrapper */
+#about-page-wrapper {
+    padding: 40px 20px;
+    background-color: #f4f4f9;
+    animation: fadeIn 1.5s ease;
+  }
+  
+  /* Content container */
+  #about-page-wrapper .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Main heading */
+  #about-page-wrapper .about-heading {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #2e2e2e;
+  }
+  
+  /* Paragraph text */
+  #about-page-wrapper .about-paragraph {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+  
+  /* Unordered lists */
+  #about-page-wrapper .about-list {
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+  }
+  
+  #about-page-wrapper .about-list-item {
+    margin-bottom: 10px;
+    list-style-type: disc;
+  }
+  
+  /* Subheadings */
+  #about-page-wrapper .about-subheading {
+    font-size: 28px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

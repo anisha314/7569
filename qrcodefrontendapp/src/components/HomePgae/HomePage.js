@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
+import Navbar from "../NavBar/NavBar"
+import Footer from "../Footer/Footer";
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -10,6 +12,8 @@ const HomePage = () => {
   };
 
   return (
+    <div>
+      <Navbar/>
     <div className="homepage">
       <section className="homepage-hero">
         <h1 className="homepage-heading">Welcome to QR Code-Based Calorie Calculator</h1>
@@ -50,14 +54,8 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
-      <footer id="footer" className="homepage-footer">
-        <p>&copy; 2025 QR Code-Based Calorie Calculator. All rights reserved.</p>
-        <div>
-          <a href="#" className="homepage-footer-link">Privacy Policy</a> | 
-          <a href="#" className="homepage-footer-link">Terms of Service</a>
-        </div>
-      </footer>
+    </div>
+    <Footer/>
     </div>
   );
 };

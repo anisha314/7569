@@ -1,0 +1,120 @@
+/* HomePage.css */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.homepage {
+  width: 100%;
+}
+
+.homepage-hero {
+  text-align: center;
+  padding: 60px 20px;
+  color: white;
+  background-image: url("https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/ways-to-cut-calories-1296x728-feature.jpg?w=1155&h=1528");
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage-heading {
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.homepage-description {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.homepage-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #2e3032;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.homepage-button:hover {
+  background-color: #414141;
+  transform: scale(1.1);
+}
+
+.homepage-features {
+  padding: 40px 20px;
+  background-color: white;
+}
+
+.homepage-features-heading {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.homepage-feature-container {
+  display: flex;
+  gap: 20px;
+  align-items: stretch; 
+}
+
+.homepage-feature-list {
+  flex: 1.2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.homepage-feature-image {
+  flex: 0.8; 
+  height: 100%;
+  margin: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+.homepage-feature-item {
+  margin-bottom: 20px;
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+.homepage-feature-item:hover{
+    transform: scale(1.05); 
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.homepage-feature-image img {
+  width: 100%;
+  border-radius: 10px;
+  height: 100%;
+  object-fit: cover; 
+}
+
+.homepage-footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #343a40;
+  color: white;
+}
+
+.homepage-footer-link {
+  color: #ffc107;
+  text-decoration: none;
+}
+
+.homepage-footer-link:hover {
+  color: white;
+  text-decoration: underline;
+}

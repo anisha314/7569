@@ -3,61 +3,69 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "./Navbar.css";
 
 const Navbar = () => {
-  const [activeLink, setActiveLink] = useState("Home");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeLink] = useState("Home");
   const navigate = useNavigate(); 
 
   const handleLogout = (event) => {
     const confirmLogout = window.confirm("Are you sure you want to log out?");
     if (confirmLogout) {
-      navigate("/login");
+      window.location.href = "./login.html";
     } else {
       event.preventDefault();
     }
   };
 
-  const handleClick = (section) => {
-    setActiveLink(section);
+  const handleClickHome = () => {
+    navigate("/");
+  };
+
+  const handleClickAbout = () => {
+    navigate("/AboutPage"); 
+  };
+
+  const handleClickFeatures = () => {
+    navigate("/QRNutrition"); 
+  };
+
+  const handleClickContact = () => {
+    navigate("/AboutPage");
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
     <header className="header">
       <div className="logo">CalorieCalc</div>
-      <nav className="navbar">
-        <a
-          href="#"
-          className={activeLink === "Home" ? "active" : ""}
-          onClick={() => handleClick("Home")}
-        >
+      <div className="hamburger" onClick={toggleMobileMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav className={`navbar ${isMobileMenuOpen ? "mobile show" : ""}`}>
+        <p className={activeLink === "Home" ? "active" : ""} onClick={() => handleClickHome("Home")}>
           Home
-        </a>
-        <a
-          href="#features"
-          className={activeLink === "Features" ? "active" : ""}
-          onClick={() => handleClick("Features")}
-        >
+        </p>
+        <p className={activeLink === "Features" ? "active" : ""} onClick={() => handleClickFeatures("Features")}>
           Features
-        </a>
-        <a
-          href="#"
-          className={activeLink === "About" ? "active" : ""}
-          onClick={() => handleClick("About")}
-        >
+        </p>
+        <p className={activeLink === "About" ? "active" : ""} onClick={() => handleClickAbout("About")}>
           About
-        </a>
-        <a
-          href="#footer"
+        </p>
+        <p
           className={activeLink === "Contact" ? "active" : ""}
-          onClick={() => handleClick("Contact")}
+          onClick={() => handleClickContact("Contact")}
         >
           Contact
-        </a>
-        <a
-          href="#"
+        </p>
+        <p
           className="logout-button"
           onClick={handleLogout}
         >
           Logout
-        </a>
+        </p>
       </nav>
     </header>
   );

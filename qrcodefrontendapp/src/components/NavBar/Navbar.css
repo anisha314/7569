@@ -1,74 +1,166 @@
 /* General Styling */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #2e3032;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  /* Logo Styling */
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #041b32; /* Dark Blue for Header */
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo Styling */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: logoFadeIn 1s ease-out forwards;
+  color: #ffffff; /* Bright Blue for the logo to make it stand out */
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar p {
+  color: white;
+  text-decoration: none;
+  padding: 10px !important;
+  border-radius: 5px;
+  font-size: 19px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover Effects */
+.navbar p:hover {
+  background-color: #072b4fa8; /* Light Blue on hover */
+  transform: scale(1.05);
+}
+
+/* Active State */
+.navbar p.active {
+  color: #ffffff; /* Gold for active state */
+  font-weight: bold;
+}
+
+/* Logout Button */
+.logout-button {
+  background-color: #488389c6; /* Bright Blue */
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #4682B4; /* Medium Blue for hover effect */
+  transform: scale(1.05);
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  background-color: white;
+  height: 3px;
+  width: 25px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+/* Mobile Menu */
+.navbar.mobile {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background-color: #041b32; /* Dark Blue for mobile */
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  padding: 10px 0;
+  z-index: 999;
+}
+
+.navbar.mobile.show {
+  display: flex;
+}
+
+.navbar p {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Keyframes for Logo Animation */
+@keyframes logoFadeIn {
+  0% {
     opacity: 0;
     transform: translateX(-50px);
-    animation: logoFadeIn 1s ease-out forwards; /* Initial animation */
   }
-  
-  /* Navbar Styling */
-  .navbar {
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Adjust navbar and button visibility for smaller screens */
+  .hamburger {
     display: flex;
-    gap: 15px;
   }
-  
-  .navbar a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+
+  .navbar {
+    display: none;
   }
-  
-  /* Hover Effects */
-  .navbar a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+
+  .navbar.mobile.show {
+    display: flex;
+  }
+
+  /* Adjust logo size for mobile */
+  .logo {
+    font-size: 20px;
+  }
+
+  /* Adjust navbar items for mobile */
+  .navbar p {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+  .navbar p:hover {
+    background-color: #072b4fa8; /* Light Blue on hover */
     transform: scale(1.05);
   }
   
   /* Active State */
-  .navbar a.active {
-    color: rgb(238, 220, 54);
+  .navbar p.active {
+    color: #ffffff; /* Gold for active state */
     font-weight: bold;
   }
-  
-  /* Logout Button */
+
+  /* Adjust logout button for mobile */
   .logout-button {
-    background-color: #dcd435;
-    color: white;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    width: 100%; /* Full-width button for small screens */
+    padding: 12px;
+    font-size: 18px;
+    background-color: #488389c6; /* Bright Blue for logout button */
   }
-  
-  .logout-button:hover {
-    background-color: #c4b528;
-    transform: scale(1.1);
-  }
-  
-  /* Keyframes for Logo Animation */
-  @keyframes logoFadeIn {
-    0% {
-      opacity: 0;
-      transform: translateX(-50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
+}

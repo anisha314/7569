@@ -34,6 +34,7 @@ const NutritionPage = () => {
       }
     });
   };
+  
 
   // Recalculate nutritional values
   const recalculateNutritionalValues = (newQuantity) => {

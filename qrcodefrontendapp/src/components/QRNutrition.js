@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import QRCode from 'react-qr-code';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import "./App.css";
 
 const QRNutrition = () => {
@@ -32,6 +32,11 @@ const QRNutrition = () => {
     } catch (error) {
       console.error('Error fetching nutritional info:', error);
     }
+
+  };
+  const navigate = useNavigate(); // Initialize navigate function
+  const handleClickHome = () => {
+    navigate("/"); // Redirect to /QRNutrition page
   };
 
   return (
@@ -44,6 +49,7 @@ const QRNutrition = () => {
         placeholder="Enter food item"
       />
       <button onClick={fetchNutritionalInfo}>Get Nutritional Info</button>
+      <button onClick={handleClickHome}>Home</button>
 
       {qrCodeData && (
         <div className="qr-code">

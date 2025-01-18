@@ -3,12 +3,13 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Navbar from "../NavBar/NavBar"
 import Footer from "../Footer/Footer";
 import "./HomePage.css";
+import caloriesImage from "./caloriesImage.jpg";
 
 const HomePage = () => {
   const navigate = useNavigate(); // Initialize navigate function
 
   const handleStartScanning = () => {
-    navigate("/Scan"); // Redirect to /QRNutrition page
+    navigate("/QRNutrition"); // Redirect to /QRNutrition page
   };
 
   return (
@@ -17,9 +18,8 @@ const HomePage = () => {
     <div className="homepage">
       <section className="homepage-hero">
         <h1 className="homepage-heading">Welcome to QR Code-Based Calorie Calculator</h1>
-        <p className="homepage-description">Scan a dish to find its calorie count effortlessly!</p>
         <button className="homepage-button" onClick={handleStartScanning}>
-          Start Scanning
+          Get your QR code
         </button>
       </section>
 
@@ -48,7 +48,7 @@ const HomePage = () => {
           </div>
           <div className="homepage-feature-image">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxpb9hcBkgH45jXURdlceqLR4ZJ8lnifxAuQ&s"
+              src={caloriesImage}
               alt="Features Overview"
             />
           </div>

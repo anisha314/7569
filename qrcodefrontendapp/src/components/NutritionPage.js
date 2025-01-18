@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import './NutritionPage.css'; // Import CSS file for styling
+import './NavBar/NavBar'
 
 const NutritionPage = () => {
   const location = useLocation();
@@ -10,49 +12,52 @@ const NutritionPage = () => {
   const [quantity, setQuantity] = useState(1); // Default to 1
   const [errorMessage, setErrorMessage] = useState(''); // Error message state
 
-  // Handle change in quantity input
-  const handleQuantityChange = (e) => {
-    const newQuantity = e.target.value;
+  // Handle quantity increase
+  const increaseQuantity = () => {
+    setQuantity((prevQuantity) => {
+      const newQuantity = prevQuantity + 1;
+      recalculateNutritionalValues(newQuantity);
+      return newQuantity;
+    });
+  };
 
-    // Check if the input is empty or invalid
-    if (newQuantity === '') {
-      setErrorMessage('Please enter a quantity');
-      setQuantity(1); // Set back to 1 if the input is empty
-    } else {
-      // If valid number, reset the error message and update quantity
-      const parsedQuantity = parseFloat(newQuantity);
-      if (isNaN(parsedQuantity) || parsedQuantity < 1) {
-        setErrorMessage('Quantity must be a valid number greater than or equal to 1');
-        setQuantity(1); // Reset to 1 if invalid input
+  // Handle quantity decrease
+  const decreaseQuantity = () => {
+    setQuantity((prevQuantity) => {
+      if (prevQuantity > 1) {
+        const newQuantity = prevQuantity - 1;
+        recalculateNutritionalValues(newQuantity);
+        return newQuantity;
       } else {
-        setErrorMessage('');
-        setQuantity(parsedQuantity);
+        setErrorMessage('Quantity cannot be less than 1');
+        return prevQuantity;
       }
+    });
+  };
 
-      // Recalculate calories based on updated quantity
-      if (nutritionalValue) {
-        const updatedCalories = {
-          fat: (nutritionalValue.fat_total_g * 9 * parsedQuantity).toFixed(2),
-          carbs: (nutritionalValue.carbohydrates_total_g * 4 * parsedQuantity).toFixed(2),
-          protein: (nutritionalValue.protein_g * 4 * parsedQuantity).toFixed(2),
-        };
+  // Recalculate nutritional values
+  const recalculateNutritionalValues = (newQuantity) => {
+    if (nutritionalValue) {
+      const updatedCalories = {
+        fat: (nutritionalValue.fat_total_g * 9 * newQuantity).toFixed(2),
+        carbs: (nutritionalValue.carbohydrates_total_g * 4 * newQuantity).toFixed(2),
+        protein: (nutritionalValue.protein_g * 4 * newQuantity).toFixed(2),
+      };
 
-        setNutritionalValue({
-          ...nutritionalValue,
-          quantity: parsedQuantity,
-          calories: (
-            parseFloat(updatedCalories.fat) +
-            parseFloat(updatedCalories.carbs) +
-            parseFloat(updatedCalories.protein)
-          ).toFixed(2),
-          caloriesBreakdown: updatedCalories,
-        });
-      }
+      setNutritionalValue({
+        ...nutritionalValue,
+        quantity: newQuantity,
+        calories: (
+          parseFloat(updatedCalories.fat) +
+          parseFloat(updatedCalories.carbs)
+        ).toFixed(2),
+        caloriesBreakdown: updatedCalories,
+      });
     }
+    setErrorMessage('');
   };
 
   useEffect(() => {
-    // Recalculate the calories whenever nutritional data or quantity changes
     if (nutritionalValue) {
       const totalCalories = calculateCalories(nutritionalValue, quantity);
       setNutritionalValue((prevData) => ({
@@ -67,7 +72,7 @@ const NutritionPage = () => {
     const carbsCalories = data.carbohydrates_total_g * 4;
     const proteinCalories = data.protein_g * 4;
 
-    const totalCalories = fatCalories + carbsCalories + proteinCalories;
+    const totalCalories = fatCalories + carbsCalories;
     return totalCalories * quantity;
   };
 
@@ -75,31 +80,34 @@ const NutritionPage = () => {
     <div className="nutrition-page">
       <h1>Nutrition Information</h1>
 
-      {/* Display nutritional data */}
       {nutritionalValue && (
         <div className="nutritional-info">
           <h2>{nutritionalValue.name}</h2>
-          <p><strong>Total Calories:</strong> {nutritionalValue.calories} kcal</p>
-          <div>
+          <p>
+            <strong>Total Calories:</strong> {nutritionalValue.calories} kcal
+          </p>
+          <div className="calorie-breakdown">
             <h3>Calorie Breakdown:</h3>
-            <p><strong>Fat:</strong> {nutritionalValue.caloriesBreakdown?.fat || '0'} kcal</p>
-            <p><strong>Carbs:</strong> {nutritionalValue.caloriesBreakdown?.carbs || '0'} kcal</p>
-            <p><strong>Protein:</strong> {nutritionalValue.caloriesBreakdown?.protein || '0'} kcal</p>
+            <p>
+              <strong>Fat:</strong> {nutritionalValue.caloriesBreakdown?.fat || '0'} kcal
+            </p>
+            <p>
+              <strong>Carbs:</strong> {nutritionalValue.caloriesBreakdown?.carbs || '0'} kcal
+            </p>
+            {/* <p>
+              <strong>Protein:</strong> {nutritionalValue.caloriesBreakdown?.protein || '0'} kcal
+            </p> */}
           </div>
 
-          {/* Display error message if any */}
           {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-          {/* Quantity Input */}
-          <div className="quantity-input">
+          <div className="quantity-control">
             <label>Quantity: </label>
-            <input
-              type="number"
-              value={quantity}
-              onChange={handleQuantityChange}
-              min="1"
-              placeholder="Enter quantity"
-            />
+            <div className="quantity-buttons">
+              <button onClick={decreaseQuantity}>-</button>
+              <span>{quantity}</span>
+              <button onClick={increaseQuantity}>+</button>
+            </div>
             <p>Quantity: {quantity} servings</p>
           </div>
         </div>

@@ -44,14 +44,16 @@ body {
   border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
-  width: fit-content; /* Automatically adjusts to content */
-  position: relative; /* Allow for transformation */
-  transform: translateY(-100px); /* Move button up closer to the heading */
+  width: fit-content;
+  z-index: 2; /* Automatically adjusts to content */
+  position: relative; /* Allow for transformation*/
+  transform: translateY(-100px); /*Move button up closer to the heading */
 }
 
 .homepage-button:hover {
   background-color: #414141;
   transform: scale(1.1);
+  transform: translateY(-100px);
 }
 
 .homepage-features {

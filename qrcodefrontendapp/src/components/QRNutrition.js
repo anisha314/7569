@@ -25,7 +25,7 @@ const QRNutrition = () => {
 
         const nutritionalString = JSON.stringify(nutritionData);
 
-        setQrCodeData(`http://192.168.0.105:3000/nutrition?data=${encodeURIComponent(nutritionalString)}`);
+        setQrCodeData(`https://clinquant-phoenix-d89a4e.netlify.app/nutrition?data=${encodeURIComponent(nutritionalString)}`);
       } else {
         alert('No nutritional information found.');
       }

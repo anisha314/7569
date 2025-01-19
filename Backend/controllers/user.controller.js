@@ -42,8 +42,8 @@ const login=async(req,res)=>{
         const token= jwt.sign(
             {
               id:userdata._id,
-              name:userdata.name
-            },secretkey)
+              name:userdata.email
+            },'kdv')
         return res.status(200).json({msg:"login successful",
             token:token
         })

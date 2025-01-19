@@ -8,111 +8,93 @@
 </head>
 <body class="bg-gray-100">
   <div class="relative min-h-screen flex items-center justify-center">
-    <!-- Background Image -->
-    <img alt="Aerial view of a pier extending into the ocean with people walking on it" class="absolute inset-0 w-full h-full object-cover" height="1080" src="https://storage.googleapis.com/a1aa/image/66qlHvyip1oWNJL3kg6F80qxp3HDHa2znR83fVOVCrsfrF8TA.jpg" width="1920"/>
+    <img alt="Aerial view of a pier extending into the ocean with people walking on it" 
+         class="absolute inset-0 w-full h-full object-cover" 
+         height="1080" 
+         src="https://storage.googleapis.com/a1aa/image/66qlHvyip1oWNJL3kg6F80qxp3HDHa2znR83fVOVCrsfrF8TA.jpg" 
+         width="1920" />
     <div class="absolute inset-0 bg-black opacity-50"></div>
-    <!-- Container Section -->
     <div class="relative z-10 flex flex-col items-center justify-center w-full max-w-6xl mx-auto p-6">
       <div class="w-full md:w-1/2 bg-white rounded-lg shadow-lg p-8">
-        <h2 class="text-gray-700 text-sm mb-2">Step 1 of 2</h2>
-        <h1 class="text-3xl font-bold mb-6">Create an account</h1>
-        <!-- Social Media Buttons -->
-        <div class="flex flex-wrap justify-center space-x-4 mb-6">
-          <button class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full">
-            <i class="fab fa-google text-xl"></i>
-          </button>
-          <button class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full">
-            <i class="fab fa-facebook-f text-xl"></i>
-          </button>
-          <button class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full">
-            <i class="fab fa-apple text-xl"></i>
-          </button>
-          <button class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full">
-            <i class="fab fa-windows text-xl"></i>
-          </button>
-          <button class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full">
-            <i class="fab fa-line text-xl"></i>
-          </button>
-          <button class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full">
-            <i class="fab fa-snapchat-ghost text-xl"></i>
-          </button>
-        </div>
-        <!-- Divider -->
-        <div class="flex items-center mb-6">
-          <hr class="flex-grow border-gray-300"/>
-          <span class="px-4 text-gray-500">Or</span>
-          <hr class="flex-grow border-gray-300"/>
-        </div>
-        <!-- Email Signup Form -->
+        <h1 class="text-3xl font-bold mb-6">Create an Account</h1>
         <div class="mb-4">
-          <h3 class="text-gray-700 font-semibold mb-2">Sign up with email</h3>
-          <p class="text-gray-500 mb-4">
-            Already have an account?
-            <a class="text-blue-600" href="./login.html">Sign in</a>
-          </p>
-          <input id="email" class="w-full p-3 border border-gray-300 rounded mb-4" placeholder="Email address" type="email"/>
+          <input id="name" class="w-full p-3 border border-gray-300 rounded mb-4" 
+                 placeholder="Name" type="text" />
+          <input id="username" class="w-full p-3 border border-gray-300 rounded mb-4" 
+                 placeholder="Username" type="text" />
+          <input id="email" class="w-full p-3 border border-gray-300 rounded mb-4" 
+                 placeholder="Email address" type="email" />
           <div class="relative">
-            <input id="password" class="w-full p-3 border border-gray-300 rounded" placeholder="Password" type="password"/>
-            <i class="fas fa-eye absolute right-3 top-3 text-gray-500 cursor-pointer" onclick="togglePasswordVisibility()"></i>
+            <input id="password" class="w-full p-3 border border-gray-300 rounded" 
+                   placeholder="Password" type="password" />
+            <i class="fas fa-eye absolute right-3 top-3 text-gray-500 cursor-pointer" 
+               onclick="togglePasswordVisibility()"></i>
           </div>
         </div>
-        <button onclick="signUp()" class="w-full bg-blue-600 text-white p-3 rounded mt-4">Continue</button>
+        <button onclick="signUp()" class="w-full bg-blue-600 text-white p-3 rounded mt-4">
+          Sign Up
+        </button>
       </div>
     </div>
   </div>
 
   <script>
-    // Function to handle sign up process
-    function signUp() {
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
+    async function signUp() {
+      const Name = document.getElementById('name').value;
+      const Username = document.getElementById('username').value;
+      const Email = document.getElementById('email').value;
+      const Password = document.getElementById('password').value;
 
-      // Check if both fields are filled
-      if (!email || !password) {
-        alert('Please fill in both fields.');
+      // Validate form fields
+      if (!Name || !Username || !Email || !Password) {
+        alert('Please fill in all fields.');
         return;
       }
 
-      // Validate email format
-      if (!isValidEmail(email)) {
+      if (!isValidEmail(Email)) {
         alert('Please enter a valid email address.');
         return;
       }
 
-      // Validate password strength
-      if (!isStrongPassword(password)) {
-        alert('Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.');
-        return;
+      // if (!isStrongPassword(Password)) {
+      //   alert('Password must be at least 8 characters long and include one uppercase letter, one lowercase letter, one number, and one special character.');
+      //   return;
+      // }
+
+      // Data payload
+      const userData = { Name, Username, Email, Password };
+
+      try {
+        // Send POST request to backend API
+        const response = await fetch('http://localhost:9000/users/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(userData),
+        });
+
+        // Handle the response
+        const result = await response.json();
+        if (response.ok) {
+          alert('Account created successfully!');
+          window.location.href = './login.html'; // Redirect to login page
+        } else {
+          alert(`Error: ${result.message}`);
+        }
+      } catch (error) {
+        alert(`An error occurred: ${error.message}`);
       }
-
-      const storedEmail = localStorage.getItem('userEmail');
-
-      // Check if email is already registered
-      if (email === storedEmail) {
-        alert('This email is already registered. Please use a different email.');
-        return;
-      }
-
-      // Store email and password in local storage
-      localStorage.setItem('userEmail', email);
-      localStorage.setItem('userPassword', password);
-      alert('Account created successfully!');
-      window.location.href = './login.html';
     }
 
-    // Function to validate email format
     function isValidEmail(email) {
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return emailPattern.test(email);
     }
 
-    // Function to validate password strength
     function isStrongPassword(password) {
-      const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      const passwordPattern = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
       return passwordPattern.test(password);
     }
 
-    // Function to toggle password visibility
     function togglePasswordVisibility() {
       const passwordInput = document.getElementById('password');
       const eyeIcon = passwordInput.nextElementSibling;
@@ -127,40 +109,7 @@
         eyeIcon.classList.add('fa-eye');
       }
     }
-
-    // Function to handle sign in process
-    function signIn() {
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-
-      const storedEmail = localStorage.getItem('userEmail');
-      const storedPassword = localStorage.getItem('userPassword');
-
-      if (email === storedEmail && password === storedPassword) {
-        alert('Sign in successful!');
-      } else {
-        alert('Invalid email or password.');
-      }
-    }
-
-    // Background Image Rotation
-    const images = [
-      "https://storage.googleapis.com/a1aa/image/66qlHvyip1oWNJL3kg6F80qxp3HDHa2znR83fVOVCrsfrF8TA.jpg",
-      "https://i.pinimg.com/originals/42/57/08/42570811764d7570dc12237433e6cf24.jpg",
-      "https://t4.ftcdn.net/jpg/04/61/47/03/360_F_461470323_6TMQSkCCs9XQoTtyer8VCsFypxwRiDGU.jpg",
-      "https://wallpaperaccess.com/full/284466.jpg",
-      "https://www.pixelstalk.net/wp-content/uploads/2016/08/Nature-wallpapers-Full-HD-backgroud.jpg"
-    ];
-
-    let currentIndex = 0;
-
-    function changeBackgroundImage() {
-      const bgImage = document.querySelector('.absolute.inset-0');
-      currentIndex = (currentIndex + 1) % images.length;
-      bgImage.src = images[currentIndex];
-    }
-
-    setInterval(changeBackgroundImage, 3000);
   </script>
 </body>
+
 </html>

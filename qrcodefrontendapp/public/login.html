@@ -1,131 +1,48 @@
 <html lang="en">
- <head>
+<head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   Sign In
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
+  <title>Sign In</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
- </head>
- <body class="flex items-center justify-center min-h-screen bg-gray-100">
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
   <div class="relative flex w-full h-full">
-   <!-- Background Image -->
-   <div class="absolute inset-0">
-    <img alt="Aerial view of a pier extending into the ocean with people walking on it" class="object-cover w-full h-full" height="1080" src="https://storage.googleapis.com/a1aa/image/66qlHvyip1oWNJL3kg6F80qxp3HDHa2znR83fVOVCrsfrF8TA.jpg" width="1920"/>
-   </div>
-   <div class="relative z-10 flex items-center justify-center w-full h-full bg-black bg-opacity-50">
-    <!-- Left Section (Hidden on Mobile) -->
-    <div class="hidden md:flex items-center justify-center w-1/2 h-full">
-     <div class="text-white">
-      <div class="flex items-center mb-4">
-       <span class="ml-2 text-2xl font-semibold">
-        Welcome
-       </span>
-      </div>
-     </div>
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img alt="Aerial view of a pier extending into the ocean with people walking on it" class="object-cover w-full h-full" height="1080" src="https://storage.googleapis.com/a1aa/image/66qlHvyip1oWNJL3kg6F80qxp3HDHa2znR83fVOVCrsfrF8TA.jpg" width="1920"/>
     </div>
-    <!-- Right Section (Form) -->
-    <div class="flex items-center justify-center w-full md:w-1/2 h-full">
-     <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md md:max-w-lg">
-      <h2 class="text-2xl font-bold mb-4">
-       Sign in
-      </h2>
-      <p class="mb-4">
-       New user?
-       <a class="text-blue-600" href="./signup.html">
-        Create an account
-       </a>
-      </p>
-      <!-- Email Input -->
-      <div class="mb-4">
-       <label class="block text-sm font-medium text-gray-700" for="email">
-        Email address
-       </label>
-       <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" id="email" type="email"/>
+    <div class="relative z-10 flex items-center justify-center w-full h-full bg-black bg-opacity-50">
+      <!-- Right Section (Form) -->
+      <div class="flex items-center justify-center w-full md:w-1/2 h-full">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md md:max-w-lg">
+          <h2 class="text-2xl font-bold mb-4">Sign in</h2>
+          <p class="mb-4">
+            New user?
+            <a class="text-blue-600" href="./signup.html">Create an account</a>
+          </p>
+          <!-- Email Input -->
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700" for="email">Email address</label>
+            <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" id="email" type="email"/>
+          </div>
+          <!-- Password Input -->
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700" for="password">Password</label>
+            <div class="relative">
+              <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" id="password" type="password"/>
+              <i class="fas fa-eye absolute right-3 top-3 text-gray-500 cursor-pointer" onclick="togglePasswordVisibility()"></i>
+            </div>
+          </div>
+          <button class="w-full bg-blue-600 text-white py-2 rounded-md mb-4" onclick="handleLogin()">
+            Sign In
+          </button>
+          <a class="block text-center text-blue-600" href="#">Get help signing in</a>
+        </div>
       </div>
-      <!-- Password Input (Initially Hidden) -->
-      <div class="mb-4 hidden" id="password-container">
-       <label class="block text-sm font-medium text-gray-700" for="password">
-        Password
-       </label>
-       <div class="relative">
-         <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" id="password" type="password"/>
-         <i class="fas fa-eye absolute right-3 top-3 text-gray-500 cursor-pointer" onclick="togglePasswordVisibility()"></i>
-       </div>
-      </div>
-      <button class="w-full bg-blue-600 text-white py-2 rounded-md mb-4" onclick="checkEmail()">
-       Continue
-      </button>
-      <!-- Divider -->
-      <div class="flex items-center justify-between mb-4">
-       <hr class="w-full border-gray-300"/>
-       <span class="px-2 text-gray-500">
-        Or
-       </span>
-       <hr class="w-full border-gray-300"/>
-      </div>
-      <!-- Social Media Buttons -->
-      <button class="w-full flex items-center justify-center bg-white border border-gray-300 py-2 rounded-md mb-2">
-       <i class="fab fa-google text-red-500 mr-2">
-       </i>
-       Continue with Google
-      </button>
-      <button class="w-full flex items-center justify-center bg-white border border-gray-300 py-2 rounded-md mb-2">
-       <i class="fab fa-facebook text-blue-600 mr-2">
-       </i>
-       Continue with Facebook
-      </button>
-      <button class="w-full flex items-center justify-center bg-white border border-gray-300 py-2 rounded-md mb-2">
-       <i class="fab fa-apple text-black mr-2">
-       </i>
-       Continue with Apple
-      </button>
-      <a class="block text-center text-blue-600 mb-4" href="#">
-       View more
-      </a>
-      <a class="block text-center text-blue-600" href="#">
-       Get help signing in
-      </a>
-     </div>
     </div>
-   </div>
   </div>
   <script>
-    // Function to check if the email is registered
-    function checkEmail() {
-      const email = document.getElementById('email').value;
-      const storedEmail = localStorage.getItem('userEmail');
-      const passwordContainer = document.getElementById('password-container');
-
-      // If email is registered, show password input
-      if (email === storedEmail) {
-        passwordContainer.classList.remove('hidden');
-        document.querySelector('button[onclick="checkEmail()"]').setAttribute('onclick', 'signIn()');
-      } else {
-        alert('Email not registered. Please create an account.');
-      }
-    }
-
-    // Function to handle sign in process
-    function signIn() {
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-
-      const storedEmail = localStorage.getItem('userEmail');
-      const storedPassword = localStorage.getItem('userPassword');
-
-      // Check if email and password match stored credentials
-      if (email === storedEmail && password === storedPassword) {
-        alert('Sign in successful!');
-        localStorage.setItem('userloginflag', 'True');
-        window.location.href = '/';
-      } else {
-        alert('Invalid email or password.');
-      }
-    }
-
     // Function to toggle password visibility
     function togglePasswordVisibility() {
       const passwordInput = document.getElementById('password');
@@ -142,24 +59,37 @@
       }
     }
 
-    // Background Image Rotation
-    const images = [
-      "https://storage.googleapis.com/a1aa/image/66qlHvyip1oWNJL3kg6F80qxp3HDHa2znR83fVOVCrsfrF8TA.jpg",
-      "https://i.pinimg.com/originals/42/57/08/42570811764d7570dc12237433e6cf24.jpg",
-      "https://t4.ftcdn.net/jpg/04/61/47/03/360_F_461470323_6TMQSkCCs9XQoTtyer8VCsFypxwRiDGU.jpg",
-      "https://wallpaperaccess.com/full/284466.jpg",
-      "https://www.pixelstalk.net/wp-content/uploads/2016/08/Nature-wallpapers-Full-HD-backgroud.jpg"
-    ];
+    // Function to handle login
+    async function handleLogin() {
+      const Email = document.getElementById('email').value.trim();
+      const Password = document.getElementById('password').value.trim();
+      
+      if (!Email || !Password) {
+        alert('Please fill in all fields.');
+        return;
+      }
 
-    let currentIndex = 0;
+      try {
+        const response = await fetch('http://localhost:9000/users/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ Email, Password }),
+        });
 
-    function changeBackgroundImage() {
-      const bgImage = document.querySelector('.absolute.inset-0 img');
-      currentIndex = (currentIndex + 1) % images.length;
-      bgImage.src = images[currentIndex];
+        const result = await response.json();
+
+        
+          alert('Sign in successful!');
+          localStorage.setItem('userloginflag', 'True');
+          window.location.href = '/'; // Redirect to the homepage
+        
+      } catch (error) {
+        console.error('Error during login:', error);
+        alert('Something went wrong. Please try again.');
+      }
     }
-
-    setInterval(changeBackgroundImage, 3000);
   </script>
- </body>
+</body>
 </html>

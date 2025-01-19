@@ -28,11 +28,11 @@ const register=async (req, res)=>{
 }
 
 const login=async(req,res)=>{
-    const {Username,Password}=req.body;
-    if(!Username ||!Password){
+    const {Email,Password}=req.body;
+    if(!Email ||!Password){
         return res.status(400).json({msg:"Bad request"})
     }
-    const userdata=await user.findOne({username:Username});
+    const userdata=await user.findOne({email:Email});
     if(!userdata){
         return res.status(400).json({msg:"wrong username or password"})
     }

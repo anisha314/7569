@@ -34,7 +34,7 @@ To get started, clone the repository and follow the installation steps below.
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/qr-calorie-calculator.git
+git clone https://github.com/anisha314/7569.git
 ```
 
 ### 2. Install Dependencies

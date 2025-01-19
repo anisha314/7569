@@ -71,7 +71,6 @@ const NutritionPage = () => {
   const calculateCalories = (data, quantity) => {
     const fatCalories = data.fat_total_g * 9;
     const carbsCalories = data.carbohydrates_total_g * 4;
-    const proteinCalories = data.protein_g * 4;
 
     const totalCalories = fatCalories + carbsCalories;
     return totalCalories * quantity;

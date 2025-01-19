@@ -6,7 +6,7 @@ import "./App.css";
 
 const QRNutrition = () => {
   const [foodItem, setFoodItem] = useState(''); // Store food name
-  const [nutritionalData, setNutritionalData] = useState(null); // Store nutritional info
+  const [,setNutritionalData] = useState(null); // Store nutritional info
   const [qrCodeData, setQrCodeData] = useState(''); // Store data for QR code
 
   const fetchNutritionalInfo = async () => {

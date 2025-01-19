@@ -1,4 +1,9 @@
+[build]
+  base = "qrcodefrontendapp"  # Base directory of the React app
+  publish = "qrcodefrontendapp/build"  # Path to the build output
+  command = "npm install && npm run build"  # Build command for React app
+
 [[redirects]]
-  from = "/"
+  from = "/*"
   to = "/index.html"
   status = 200

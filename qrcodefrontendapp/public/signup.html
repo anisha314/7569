@@ -1,42 +1,166 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sign-up</title>
-    <link rel="stylesheet" href="signup.css">
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Create an Account</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 </head>
-<body>
-    <div class="wrapped">
-        <h1>Sign-Up</h1>
-        <form>
-            <div>
-                <label for="username-input">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
-                </label>
-                <input type="text" name="username" id="username-input" placeholder="username" required>
-            </div>
-            <div>
-                <label for="email-input">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280 320-200v-80L480-520 160-720v80l320 200Z"/></svg>
-                </label>
-                <input type="email" name="e-mail" id="email-input" placeholder="e-mail" required>
-            </div>
-            <div>
-                <label for="password-input">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm240-200q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80Z"/></svg>
-                </label>
-                <input type="password" name="password" id="password-input" placeholder="password" required>
-            </div>
-            <div>
-                <label for="verify-password-input">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm240-200q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80Z"/></svg>
-                </label>
-                <input type="password" name="verify-password" id="verify-password-input" placeholder="verify-password" required>
-            </div>
-            <button type="submit">Sign-Up</button>
-        </form>
-        <p>Already have an account? <a href="./login.html">Log-in</a></p>
+<body class="bg-gray-100">
+  <div class="relative min-h-screen flex items-center justify-center">
+    <!-- Background Image -->
+    <img alt="Aerial view of a pier extending into the ocean with people walking on it" class="absolute inset-0 w-full h-full object-cover" height="1080" src="https://storage.googleapis.com/a1aa/image/66qlHvyip1oWNJL3kg6F80qxp3HDHa2znR83fVOVCrsfrF8TA.jpg" width="1920"/>
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <!-- Container Section -->
+    <div class="relative z-10 flex flex-col items-center justify-center w-full max-w-6xl mx-auto p-6">
+      <div class="w-full md:w-1/2 bg-white rounded-lg shadow-lg p-8">
+        <h2 class="text-gray-700 text-sm mb-2">Step 1 of 2</h2>
+        <h1 class="text-3xl font-bold mb-6">Create an account</h1>
+        <!-- Social Media Buttons -->
+        <div class="flex flex-wrap justify-center space-x-4 mb-6">
+          <button class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full">
+            <i class="fab fa-google text-xl"></i>
+          </button>
+          <button class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full">
+            <i class="fab fa-facebook-f text-xl"></i>
+          </button>
+          <button class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full">
+            <i class="fab fa-apple text-xl"></i>
+          </button>
+          <button class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full">
+            <i class="fab fa-windows text-xl"></i>
+          </button>
+          <button class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full">
+            <i class="fab fa-line text-xl"></i>
+          </button>
+          <button class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full">
+            <i class="fab fa-snapchat-ghost text-xl"></i>
+          </button>
+        </div>
+        <!-- Divider -->
+        <div class="flex items-center mb-6">
+          <hr class="flex-grow border-gray-300"/>
+          <span class="px-4 text-gray-500">Or</span>
+          <hr class="flex-grow border-gray-300"/>
+        </div>
+        <!-- Email Signup Form -->
+        <div class="mb-4">
+          <h3 class="text-gray-700 font-semibold mb-2">Sign up with email</h3>
+          <p class="text-gray-500 mb-4">
+            Already have an account?
+            <a class="text-blue-600" href="./login.html">Sign in</a>
+          </p>
+          <input id="email" class="w-full p-3 border border-gray-300 rounded mb-4" placeholder="Email address" type="email"/>
+          <div class="relative">
+            <input id="password" class="w-full p-3 border border-gray-300 rounded" placeholder="Password" type="password"/>
+            <i class="fas fa-eye absolute right-3 top-3 text-gray-500 cursor-pointer" onclick="togglePasswordVisibility()"></i>
+          </div>
+        </div>
+        <button onclick="signUp()" class="w-full bg-blue-600 text-white p-3 rounded mt-4">Continue</button>
+      </div>
     </div>
+  </div>
+
+  <script>
+    // Function to handle sign up process
+    function signUp() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Check if both fields are filled
+      if (!email || !password) {
+        alert('Please fill in both fields.');
+        return;
+      }
+
+      // Validate email format
+      if (!isValidEmail(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      // Validate password strength
+      if (!isStrongPassword(password)) {
+        alert('Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.');
+        return;
+      }
+
+      const storedEmail = localStorage.getItem('userEmail');
+
+      // Check if email is already registered
+      if (email === storedEmail) {
+        alert('This email is already registered. Please use a different email.');
+        return;
+      }
+
+      // Store email and password in local storage
+      localStorage.setItem('userEmail', email);
+      localStorage.setItem('userPassword', password);
+      alert('Account created successfully!');
+      window.location.href = './login.html';
+    }
+
+    // Function to validate email format
+    function isValidEmail(email) {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailPattern.test(email);
+    }
+
+    // Function to validate password strength
+    function isStrongPassword(password) {
+      const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      return passwordPattern.test(password);
+    }
+
+    // Function to toggle password visibility
+    function togglePasswordVisibility() {
+      const passwordInput = document.getElementById('password');
+      const eyeIcon = passwordInput.nextElementSibling;
+
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+      }
+    }
+
+    // Function to handle sign in process
+    function signIn() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      const storedEmail = localStorage.getItem('userEmail');
+      const storedPassword = localStorage.getItem('userPassword');
+
+      if (email === storedEmail && password === storedPassword) {
+        alert('Sign in successful!');
+      } else {
+        alert('Invalid email or password.');
+      }
+    }
+
+    // Background Image Rotation
+    const images = [
+      "https://storage.googleapis.com/a1aa/image/66qlHvyip1oWNJL3kg6F80qxp3HDHa2znR83fVOVCrsfrF8TA.jpg",
+      "https://i.pinimg.com/originals/42/57/08/42570811764d7570dc12237433e6cf24.jpg",
+      "https://t4.ftcdn.net/jpg/04/61/47/03/360_F_461470323_6TMQSkCCs9XQoTtyer8VCsFypxwRiDGU.jpg",
+      "https://wallpaperaccess.com/full/284466.jpg",
+      "https://www.pixelstalk.net/wp-content/uploads/2016/08/Nature-wallpapers-Full-HD-backgroud.jpg"
+    ];
+
+    let currentIndex = 0;
+
+    function changeBackgroundImage() {
+      const bgImage = document.querySelector('.absolute.inset-0');
+      currentIndex = (currentIndex + 1) % images.length;
+      bgImage.src = images[currentIndex];
+    }
+
+    setInterval(changeBackgroundImage, 3000);
+  </script>
 </body>
 </html>

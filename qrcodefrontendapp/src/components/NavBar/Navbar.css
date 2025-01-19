@@ -58,9 +58,11 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
   text-align: center;
   padding: 10px 20px;
-  border-radius: 5px;
-  margin-left: 10px;
+  border-radius: 8px;
+  margin-left: 6px;
   cursor: pointer;
+  display: inline-block; /* Ensure the button stays on one line */
+  white-space: nowrap;
 }
 
 .logout-button:hover {
